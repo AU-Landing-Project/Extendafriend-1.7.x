@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin_manifest>
+    <field key="author" value="Matt Beckett" />
+    <field key="version" value="1.0" />
+    <field key="description" value='Adds a "tag" like interface to the add-friend link.  Each tag will create a collection and add that friend to it, or just add the friend to the existing collection.' />
+    <field key="website" value="http://clever-name.com" />
+    <field key="copyright" value="(C) University of Athabasca, 2011" />
+    <field key="licence" value="GNU Public License version 2" />
+    <field key="elgg_version" value="2010071002" />    
+</plugin_manifest>
