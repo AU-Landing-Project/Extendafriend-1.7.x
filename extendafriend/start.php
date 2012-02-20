@@ -15,20 +15,27 @@ function extendafriend_init() {
 
 	// Extend system CSS with our own styles
 	elgg_extend_view('css', 'extendafriend/css');
-	elgg_extend_view('metatags','extendafriend/metatags');
-	
-	// Extend page view to add jquery triggers at bottom of page
-	elgg_extend_view('footer/analytics', 'extendafriend/jqueryinit', 1000);
 
 	// Load the language file
 	register_translations($CONFIG->pluginspath . "extendafriend/languages/");
 
 	//register action to add friends with collections
 	register_action("extendafriend/add", true, $CONFIG->pluginspath . "extendafriend/actions/add.php");	
+	
+	register_page_handler('extendafriend','extendafriend_page_handler');
 }
 
 
-global $CONFIG;
+function extendafriend_page_handler($page){
+  global $CONFIG;
+		
+  set_input('friend', $page[0]);
+  set_input('approve', $page[1]);
+  if(!include($CONFIG->pluginspath . "extendafriend/pages/form.php")){
+    return FALSE;
+  }
+  return TRUE;
+}
 
 // call init
 register_elgg_event_handler('init','system','extendafriend_init');

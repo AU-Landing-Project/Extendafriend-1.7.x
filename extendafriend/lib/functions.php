@@ -28,6 +28,7 @@ function extendafriend_get_friend_collections($friend_guid, $names = false){
 	$friend_collections = array();
 	for($i=0; $i<$collectionscount; $i++){
 		$cur_members = get_members_of_access_collection($collections[$i]->id, true);
+		if(!is_array($cur_members)){ $cur_members = array(); }
 		if(in_array($friend_guid, $cur_members)){
 			if($names){
 				$friend_collections[] = $collections[$i]->name;
